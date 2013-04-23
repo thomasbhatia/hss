@@ -1,0 +1,6 @@
+ebin/*
+*.beam
+deps/*
+*.sublime-*
+rel/*
+*.DS_Store
