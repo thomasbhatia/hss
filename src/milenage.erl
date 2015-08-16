@@ -338,7 +338,6 @@ out5(OPc, K, TEMP) ->
 rot(X, 0) ->
 	X;
 rot(B, R) ->
-	Len = R div 8,
-	<<X:Len/binary, Y/binary>> = B,
-	<<Y/binary, X/binary>>.
+	<<X:R/bits, Y/bits>> = B,
+	<<Y/bits, X:R/bits>>.
 
