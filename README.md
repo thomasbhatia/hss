@@ -3,7 +3,7 @@
 
 > Repo mirrored from https://code.google.com/p/hss/
 
-[![Travis build Status](https://travis-ci.org/eshikafe/hss.svg?branch=master)](https://travis-ci.org/eshikafe/hss)
+[![Build Status](https://travis-ci.org/eshikafe/hss.svg?branch=patch-1)](https://travis-ci.org/eshikafe/hss)
 
 Build
 ------
