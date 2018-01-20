@@ -1,4 +1,4 @@
-3Gdb: A 3GPP IP Multimedia Subsystem (IMS) Home Subscriber Server (HSS)
+3Gdb: A 3GPP IMS Home Subscriber Server (HSS)
 ========================================================================
 
 > Repo mirrored from https://code.google.com/p/hss/
