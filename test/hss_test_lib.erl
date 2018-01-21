@@ -42,7 +42,7 @@
 -export([userid/4, address/3, privateid/0, telurl/0]).
 
 -include("../include/subscriber_data.hrl").
--include_lib("ct.hrl").
+-include_lib("common_test/include/ct.hrl").
 
 -define(MCC, 248).
 -define(MNC, 323).

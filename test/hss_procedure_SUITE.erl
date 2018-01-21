@@ -39,7 +39,7 @@
 
 -compile(export_all).
 
--include("ct.hrl").
+-include_lib("common_test/include/ct.hrl").
 
 -include("../include/subscriber_data.hrl").
 -include("../include/procedures.hrl").

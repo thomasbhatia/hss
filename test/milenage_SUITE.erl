@@ -39,7 +39,7 @@
 
 -compile(export_all).
 
--include("ct.hrl").
+-include_lib("common_test/include/ct.hrl").
 
 -record(test_set,
 		{k, rand, sqn, amf, op, opc, f1, f1star, f2, f5, f3, f4, f5star}).
