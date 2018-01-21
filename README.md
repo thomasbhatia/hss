@@ -4,7 +4,7 @@
 > Repo mirrored from https://code.google.com/p/hss/
 
 [![Build Status](https://travis-ci.org/eshikafe/hss.svg?branch=patch-1)](https://travis-ci.org/eshikafe/hss)
-[![Erlang Versions][erlang version badge]][travis]
+
 
 Build
 ------
