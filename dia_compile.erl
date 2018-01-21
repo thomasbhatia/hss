@@ -1,5 +1,5 @@
 #!/usr/bin/env escript
-%% rebar3 prehook for cx dict compilation
+%% rebar3 prehook for cx diameter dict compilation
 
 main(["compile"]) -> 
 	compile().
