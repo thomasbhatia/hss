@@ -1,5 +1,5 @@
 #!/usr/bin/env escript
-%% prehook
+%% prehook for cx dict compilation
 
 main(["compile"]) -> 
 	compile().
