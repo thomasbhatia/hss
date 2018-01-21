@@ -4,3 +4,4 @@ deps/*
 *.sublime-*
 rel/*
 *.DS_Store
+_build/*
