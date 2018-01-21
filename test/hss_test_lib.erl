@@ -52,7 +52,7 @@
 %% @doc Initiation before the whole suite.
 %%
 init_per_suite(Config) ->
-	%%ok = application:start(mnesia),
+	ok = application:start(mnesia),
 	mnesia:wait_for_tables([schema], 10000),
 	Tables = [subscriber,user,profile,address,filter,trigger,location],
 	case mnesia:wait_for_tables(Tables, 4000) of
