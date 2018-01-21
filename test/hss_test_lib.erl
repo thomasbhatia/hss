@@ -64,7 +64,8 @@ init_per_suite(Config) ->
 			ok = application:start(mnesia),
 			{ok, Tables} = hss:install([node()])
 	end,
-	ok = crypto:start(),
+	%% ok = crypto:start(),
+	application:start(crypto),
 	ok = application:start(hss),
 	OP = crypto:strong_rand_bytes(16),
    [{op, OP} | Config].

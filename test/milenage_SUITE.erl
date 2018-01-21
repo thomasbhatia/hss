@@ -60,7 +60,8 @@ suite() ->
 %% @doc Initiation before the whole suite.
 %%
 init_per_suite(Config) ->
-	ok = crypto:start(),
+	%%ok = crypto:start(),
+	application:start(crypto),
 	Config.
 
 %% @spec (Config) -> any()
