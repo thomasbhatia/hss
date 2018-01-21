@@ -8,15 +8,9 @@
 
 Build
 ------
-You will of course need an installed Erlang/OTP (>= 18.0) environment 
-
-To build the system
+To compile the application:
 
 	rebar3 compile
-
-To build developer documentation:
-
-	$ make all_doc
 
 To run the test suites:
 
