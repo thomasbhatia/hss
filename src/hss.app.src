@@ -11,13 +11,13 @@
 	{maxP, infinity},
 	{maxT, infinity},
 	{registered, []},
-	{included_applications, [xmerl, diameter]},
 	{applications, [
 					kernel, 
 					stdlib, 
 					mnesia, 
 					crypto,
-					diameter
+					diameter,
+					xmerl
 					]},
 	{env,
 		[{keep_unregistered_scscf, true},
