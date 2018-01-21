@@ -7,11 +7,11 @@
 
 Build
 ------
-You will of course need an installed Erlang/OTP environment.
+You will of course need an installed Erlang/OTP (>= 18.0) environment 
 
-To build the system and documentation:
+To build the system
 
-	$ make
+	rebar3 compile
 
 To build developer documentation:
 
@@ -19,12 +19,6 @@ To build developer documentation:
 
 To run the test suites:
 
-	$ make test
+	rebar3 ct
 
-This requires that Common Test and Test Server are installed 
-and in your path.  Quick and easy method:
-
-	$ cd ~/lib/erlang/lib
-	$ common_test-*/install.sh `pwd`
-	$ ln -s ~/lib/erlang/lib/common_test-*/priv/bin/run_test ~/bin
 
