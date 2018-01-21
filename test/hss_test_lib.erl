@@ -52,21 +52,21 @@
 %% @doc Initiation before the whole suite.
 %%
 init_per_suite(Config) ->
-	ok = application:start(mnesia),
+	application:start(mnesia),
 	mnesia:wait_for_tables([schema], 10000),
 	Tables = [subscriber,user,profile,address,filter,trigger,location],
 	case mnesia:wait_for_tables(Tables, 4000) of
 		ok ->
 			ok;
 		_ ->
-			ok = application:stop(mnesia),
-			ok = mnesia:create_schema([node()]),
-			ok = application:start(mnesia),
+			application:stop(mnesia),
+			mnesia:create_schema([node()]),
+			application:start(mnesia),
 			{ok, Tables} = hss:install([node()])
 	end,
 	%% ok = crypto:start(),
 	application:start(crypto),
-	ok = application:start(hss),
+	application:start(hss),
 	OP = crypto:strong_rand_bytes(16),
    [{op, OP} | Config].
 
@@ -75,9 +75,9 @@ init_per_suite(Config) ->
 %% @doc Cleanup after the whole suite.
 %%
 end_per_suite(_Config) ->
-	ok = application:stop(hss),
-	ok = application:stop(crypto),
-	ok = application:stop(mnesia).
+	application:stop(hss),
+	application:stop(crypto),
+	application:stop(mnesia).
 
 
 %% @spec () -> servicePointTriggerID()
