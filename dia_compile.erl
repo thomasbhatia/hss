@@ -1,4 +1,5 @@
 #!/usr/bin/env escript
+%% prehook
 
 main(["compile"]) -> 
 	compile().
