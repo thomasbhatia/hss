@@ -1,7 +1,9 @@
-;; 3GPP TS 29.229 V12.7.0 (2015-09)
-;; http://www.etsi.org/deliver/etsi_ts/129200_129299/129229/12.07.00_60/ts_129229v120700p.pdf
+;; Compliance:
+;; 	3GPP TS 29.229 V12.7.0 (2015-09)
+;; 	http://www.etsi.org/deliver/etsi_ts/129200_129299/129229/12.07.00_60/ts_129229v120700p.pdf
 
-;; http://erlang.org/doc/man/diameter_dict.html#FILE_FORMAT
+;; Reference: http://erlang.org/doc/man/diameter_dict.html#FILE_FORMAT
+;; compile: diameter_make:codec("filename.dia",[erl])
 
 ;; 3GPP Cx interface application
 @id 16777216
