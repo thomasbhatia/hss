@@ -26,14 +26,14 @@ start(I)->
 	diameter:start(),
 	{ok, HssConfig} = file:consult("hss.cfg"),
 	{ok, ServiceConfig} = get_service_config(I, HssConfig),
-	TransportOption = get_transport_config(),
+	TransportOption = get_transport_config(HssConfig),
 	diameter:start_service(?MODULE, ServiceConfig),
 	diameter:add_transport(?MODULE, {listen, TransportOption}).
 
 stop() ->
 	diameter:stop_service(?MODULE).
 
-get_service_config(HssConfig) ->
+get_transport_config(HssConfig) ->
 	% Read config file
 	 [{transport_module, proplists:get_value(transport_module, HssConfig)},
      				   {transport_config, [{reuseaddr, proplists:get_value(reuseaddr, HssConfig)},
@@ -64,5 +64,3 @@ get_service_config(DiameterInterface, HssConfig) ->
 			{ok, CxServiceConfig}
             
     end.
-get_transport_config() ->
-	ok.
