@@ -10,7 +10,7 @@ otp_release:
 
 script:
   - rebar3 compile
-  - rebar3 ct
+  
 
 notifications:
   email: false
