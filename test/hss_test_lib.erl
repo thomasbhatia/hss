@@ -42,7 +42,7 @@
 -export([userid/4, address/3, privateid/0, telurl/0]).
 
 -include("../include/subscriber_data.hrl").
--include_lib("ct.hrl").
+-include_lib("common_test/include/ct.hrl").
 
 -define(MCC, 248).
 -define(MNC, 323).
@@ -64,9 +64,10 @@ init_per_suite(Config) ->
 			ok = application:start(mnesia),
 			{ok, Tables} = hss:install([node()])
 	end,
-	ok = crypto:start(),
+	%% ok = crypto:start(),
+	%%application:start(crypto),
 	ok = application:start(hss),
-	OP = crypto:rand_bytes(16),
+	OP = crypto:strong_rand_bytes(16),
    [{op, OP} | Config].
 
 %% @spec (Config) -> any()
@@ -141,7 +142,7 @@ subscriberid(Config) ->
 %% @doc Create a user.
 %%
 userid(SubscriberID, PrivateUserID, PublicUserIDs, Config) ->
-	K = crypto:rand_bytes(16),
+	K = crypto:strong_rand_bytes(16),
 	OPc = milenage:opc(K, ?config(op, Config)),
 	ok = hss:add_user(SubscriberID, PrivateUserID, PublicUserIDs, K, OPc),
 	PrivateUserID.

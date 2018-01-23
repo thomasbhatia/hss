@@ -60,6 +60,9 @@
 -include("subscriber_data.hrl").
 -include("procedures.hrl").
 
+%% Support for Cx
+-include("cx.hrl").
+
 %%----------------------------------------------------------------------
 %%  The hss_server API
 %%----------------------------------------------------------------------
@@ -250,6 +253,9 @@ format_status(_Opt, [_PDict, State]) ->
 %% @doc Handle a user registration status query (URSQ).
 %% 	Procedure described in 3GPP TS 29.228
 %% 	6.1.1 User registration status query.
+%%  This procedure is used between the I-CSCF and the HSS during SIP registrations. 
+%%  The procedure is invoked by the ICSCF. This procedure is mapped to the commands 
+%%  User-Authorization-Request/Answer in the Diameter application specified in 3GPP TS 29.229 
 %% @see //stdlib/gen_server:handle_call/3
 %% 
 user_registration_status_query(#user_registration_status_query{
@@ -279,8 +285,7 @@ user_registration_status_query(#user_registration_status_query{
 			{reply, Reply, State};
 		{aborted, Reason} when Reason == authorization_rejected ->
 			Ferr(Reason),
-			Reply = #user_registration_status_response{
-					resultCode = Reason},
+			Reply = #user_registration_status_response{resultCode = Reason},
 			{reply, Reply, State};
 		{aborted, _Reason} ->
 			Ferr(unable_to_comply),
@@ -1519,7 +1524,7 @@ authentication_data(OPc, K, SEQ, N) ->
 authentication_data(_OPc, _K, _SEQ, 0, Acc) ->
 	Acc;
 authentication_data(OPc, K, SEQ, N, Acc) ->
-	RAND = crypto:rand_bytes(16),
+	RAND = crypto:strong_rand_bytes(16),
 	{RES, CK, IK, AK} = milenage:f2345(OPc, K, RAND),
 	IND = N - 1,
 	SQN = <<SEQ:43, IND:5>>,

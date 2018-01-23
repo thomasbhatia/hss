@@ -39,7 +39,7 @@
 
 -compile(export_all).
 
--include("ct.hrl").
+-include_lib("common_test/include/ct.hrl").
 
 -record(test_set,
 		{k, rand, sqn, amf, op, opc, f1, f1star, f2, f5, f3, f4, f5star}).
@@ -60,7 +60,8 @@ suite() ->
 %% @doc Initiation before the whole suite.
 %%
 init_per_suite(Config) ->
-	ok = crypto:start(),
+	%%ok = crypto:start(),
+	application:start(crypto),
 	Config.
 
 %% @spec (Config) -> any()

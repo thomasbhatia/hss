@@ -37,6 +37,9 @@
 %%% between a CSCF (client) and the HSS (server).
 %%%
 
+%% 3GPP TS 29.228
+
+
 %% @type user_registration_status_query() =
 %% 	#user_registration_status_query{
 %% 		publicUserID = publicUserID(),
@@ -48,12 +51,14 @@
 %%
 %%		User registration status query.
 %%
+
+%% Table 6.1.1.1: User registration status query 
 -record(user_registration_status_query,
-		{publicUserID,
-		visitedNetworkIdentifier,
-		typeOfAuthorization,
-		privateUserID,
-		routingInformation}).
+		{publicUserID,  			%% Mandatory. User public identity to be registered 
+		visitedNetworkIdentifier,   %% Mandatory. Identifier that allows the home network to identify the visited network 
+		typeOfAuthorization, 		%% Conditional. Type of authorization requested by the I-CSCF. 
+		privateUserID,       		%% Mandatory. User private identity 
+		routingInformation}).		%% Conditional. 
 
 %% @type experimentalResult() = user_unknown | identities_dont_match
 %% 				| roaming_not_allowed | subsequent_reqistration
@@ -75,11 +80,13 @@
 %%
 %%		User registration status response .
 %%
+
+%% Table 6.1.1.2: User registration status response
 -record(user_registration_status_response,
-		{resultCode,
-		experimentalResult,
-		sCSCFCapabilities,
-		sCSCFName}).
+		{resultCode,			%% Mandatory. For  Diameter Base Protocol
+		experimentalResult,		%% Mandatory. For Cx/Dx errors.
+		sCSCFCapabilities,		%% Optional.
+		sCSCFName}).			%% Conditional. Name of the assigned S-CSCF.
 
 %% @type serverAssignmentType() = no_assignment | registration
 %% 				| reregistration | unregistered_user 
